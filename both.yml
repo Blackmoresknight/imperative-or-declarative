@@ -1,0 +1,23 @@
+---
+- name: 'This playbook will run certain tasks in order'
+  hosts: abn
+  become: true
+  tasks:
+    - name: 'Check server connection'
+      ping:
+
+    - name: 'Ensure webserver is restarted'
+      service:
+        name: httpd
+        state: restarted
+
+    - name: 'Ensure webserver is installed'
+      yum:
+        name: httpd
+        state: installed
+
+    - name: 'Ensure web content is available'
+      template:
+        src: index.html
+        dest: /var/www/html/index.html
+
