@@ -20,4 +20,7 @@
       template:
         src: index.html
         dest: /var/www/html/index.html
-
+    
+    - name: 'Adding a new task locally'
+      debug:
+        msg: 'Hello world'
